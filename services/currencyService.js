@@ -13,8 +13,8 @@ async function fetchData() {
     }
 }
 
-// Автообновление данных каждые 10 минут
-setInterval(fetchData, 600000);
+// Автообновление данных каждые 12 часов
+setInterval(fetchData, 12 * 60 * 60 * 1000);
 fetchData(); // Первый запуск
 
 function getData() {
