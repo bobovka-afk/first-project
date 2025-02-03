@@ -1,9 +1,8 @@
 const axios = require('axios');
 const { API_URL, SECRET_KEY } = require('./config/config');
 const connection = require('./config/db'); 
-let data = {}; // Данные с API
+let data = {}; 
 
-// Функция для получения данных из API
 async function fetchData() {
     try {
         const response = await axios.get(`${API_URL}${SECRET_KEY}`);

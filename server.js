@@ -3,11 +3,16 @@ const { PORT } = require('./config/config');
 const exchangeRoutes = require('./routes/exchange');
 const currencyRoutes = require('./routes/currency');
 const { checkAndUpdateRates } = require('./currencyService');
+const authRoutes = require('./routes/auth');
+
 
 const app = express();
 
+app.use(express.json());
 app.use('/exchange-rate', exchangeRoutes);
 app.use('/currency-list', currencyRoutes);
+app.use('/auth', authRoutes);
+
 
 checkAndUpdateRates()
     .then(() => {

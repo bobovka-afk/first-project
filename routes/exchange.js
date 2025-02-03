@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../config/db'); // Подключение к базе данных
+const connection = require('../config/db');
 
 router.get('/', async (req, res) => { 
     try { 
@@ -27,9 +27,8 @@ router.get('/', async (req, res) => {
                 return res.status(404).json({ error: 'Не найден курс для переданных валют.' });
             }
 
-            console.log('Курсы валют взяты из базы данных:', results); // Логируем полученные данные
+            console.log('Курсы валют взяты из базы данных:', results); 
 
-            // Извлекаем курсы валют
             const rates = {};
             results.forEach(row => {
                 rates[row.currency_code] = row.rate;
